@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Madhumitha Manivannan – Portfolio</title>
+<title>Madhumitha Manivannan | Developer Portfolio</title>
+<meta name="description" content="Portfolio of Madhumitha Manivannan — IT student, developer, AI and data projects, hackathons, and learning journey.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -19,7 +20,7 @@ body{
   background:var(--bg);
   color:var(--text);
   overflow-x:hidden;
-  cursor:none;
+  cursor:auto;
 }
 
 /* Custom cursor */
@@ -132,7 +133,7 @@ h1.hero-name{
 }
 .btn{
   padding:0.75rem 1.8rem;border-radius:8px;font-size:0.9rem;
-  font-weight:500;cursor:none;text-decoration:none;
+  font-weight:500;cursor:auto;text-decoration:none;
   transition:all 0.3s ease;letter-spacing:0.03em;
 }
 .btn-primary{
@@ -298,7 +299,7 @@ h1.hero-name{
 .filter-btn{
   padding:0.5rem 1.25rem;border-radius:999px;font-size:0.8rem;font-weight:500;
   border:1px solid var(--border);background:transparent;color:var(--muted);
-  cursor:none;transition:all 0.3s;
+  cursor:auto;transition:all 0.3s;
 }
 .filter-btn.active,.filter-btn:hover{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
@@ -430,6 +431,41 @@ footer{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 
+
+/* Interactive portfolio additions */
+.section-intro{max-width:650px;margin:1rem auto 0;color:var(--muted);line-height:1.7;font-size:.95rem}
+.project-card{cursor:pointer;outline:none}
+.project-card:focus-visible,.cert-card:focus-visible{outline:2px solid var(--accent2);outline-offset:4px}
+.project-card-top{min-height:140px}
+.project-emoji{position:relative;z-index:1}
+.project-card-top::after{content:'OPEN DETAILS ↗';position:absolute;bottom:12px;right:14px;font-size:.65rem;letter-spacing:.12em;color:rgba(255,255,255,.65)}
+.project-card .project-title{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+.project-card .project-title::after{content:'↗';color:var(--accent2);font-size:.85rem}
+.project-card .project-desc{min-height:4.2em}
+.certs-grid{grid-template-columns:repeat(3,1fr)}
+.cert-card{cursor:pointer;position:relative}
+.cert-card::after{content:'VIEW DETAILS ↗';position:absolute;right:1rem;bottom:.8rem;font-size:.62rem;color:var(--accent2);letter-spacing:.08em}
+.detail-modal{position:fixed;inset:0;display:none;z-index:2000;align-items:center;justify-content:center;padding:1.25rem}
+.detail-modal.open{display:flex}
+.modal-backdrop{position:absolute;inset:0;background:rgba(2,4,15,.82);backdrop-filter:blur(8px)}
+.modal-panel{position:relative;width:min(680px,100%);max-height:85vh;overflow:auto;background:linear-gradient(160deg,var(--surface2),var(--bg2));border:1px solid rgba(6,182,212,.35);border-radius:20px;padding:2rem;box-shadow:0 25px 90px rgba(0,0,0,.5);animation:modalIn .22s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(15px) scale(.98)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:1rem;right:1rem;border:1px solid var(--border);background:var(--surface);color:var(--text);width:36px;height:36px;border-radius:50%;font-size:1.4rem;cursor:pointer}
+.modal-kicker{color:var(--accent2);font-size:.72rem;letter-spacing:.16em;margin-bottom:.7rem}
+.modal-panel h2{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,4vw,2rem);margin:0 2rem .9rem 0}
+.modal-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.3rem}
+.modal-tag{padding:.3rem .65rem;border:1px solid var(--border);border-radius:99px;color:var(--accent2);font-size:.72rem}
+.modal-panel p{color:var(--muted);line-height:1.8;font-size:.92rem}
+.modal-extra{margin-top:1.2rem;display:grid;gap:.75rem}
+.modal-extra h3{font-size:.85rem;color:var(--text);margin-bottom:.3rem}
+.modal-extra ul{padding-left:1.2rem;color:var(--muted);line-height:1.8;font-size:.86rem}
+.modal-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.modal-actions a{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;padding:.7rem 1rem;border-radius:9px;border:1px solid var(--border);color:var(--text);font-size:.82rem;transition:.2s}
+.modal-actions a:hover{border-color:var(--accent2);color:var(--accent2);transform:translateY(-2px)}
+.empty-link-note{font-size:.75rem;color:var(--muted);margin-top:.4rem}
+@media(max-width:900px){.certs-grid{grid-template-columns:1fr}.modal-panel{padding:1.5rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
 /* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.4,0,0.2,1)}
@@ -451,6 +487,87 @@ footer{
   nav{padding:1rem}
   .nav-links{gap:1rem}
 }
+
+
+/* Interactive skill atlas */
+.skills-atlas{position:relative;overflow:hidden}
+.skills-atlas-top{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;margin:0 0 1.5rem;padding:1.25rem 1.4rem;border:1px solid var(--border);border-radius:22px;background:linear-gradient(110deg,rgba(85,122,103,.08),rgba(217,95,73,.06),var(--surface))}
+.skills-atlas-intro{display:flex;align-items:center;gap:1rem}.atlas-mark{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;background:var(--text);color:var(--bg);font:700 .8rem 'Syne',sans-serif;letter-spacing:.06em}.skills-atlas-intro strong{display:block;font:700 1.05rem 'Syne',sans-serif}.skills-atlas-intro small{display:block;color:var(--muted);font-size:.78rem;margin-top:.25rem}
+.skill-search-wrap{display:flex;align-items:center;gap:.6rem;border:1px solid var(--border);border-radius:999px;background:var(--surface);padding:.6rem .85rem;min-width:220px}.skill-search-wrap span{font-size:1.2rem;color:var(--accent)}.skill-search-wrap input{width:100%;border:0;outline:0;background:transparent;color:var(--text);font:inherit;font-size:.82rem}
+.skill-filters{display:flex;gap:.55rem;flex-wrap:wrap;margin:0 0 1.5rem}.skill-filter{border:1px solid var(--border);border-radius:999px;padding:.5rem .9rem;background:var(--surface);color:var(--muted);font-size:.78rem;cursor:pointer;transition:transform .2s,background .2s,color .2s,border-color .2s}.skill-filter:hover{transform:translateY(-2px);border-color:var(--accent)}.skill-filter.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.skill-atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.atlas-card{border:1px solid var(--border);background:var(--surface);border-radius:20px;padding:1.25rem;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}.atlas-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(55,40,30,.08);border-color:var(--skill-accent,var(--accent))}.atlas-card::after{content:'';position:absolute;left:0;top:0;width:4px;height:100%;background:var(--skill-accent,var(--accent));opacity:.75}.atlas-card-head{display:flex;align-items:center;gap:.8rem;margin-bottom:.95rem}.atlas-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:var(--skill-tint,#f5eee8);font-size:1.2rem}.atlas-heading h3{font:700 1rem 'Syne',sans-serif;margin:0}.atlas-heading small{display:block;color:var(--muted);font-size:.7rem;margin-top:.2rem}.atlas-skills{display:flex;flex-wrap:wrap;gap:.45rem}.atlas-chip{border:1px solid var(--border);border-radius:9px;padding:.45rem .65rem;background:transparent;color:var(--text);font-size:.75rem;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}.atlas-chip:hover{background:var(--skill-tint,#f5eee8);border-color:var(--skill-accent,var(--accent));transform:translateY(-1px)}.atlas-card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border);font-size:.7rem;color:var(--muted)}.atlas-card-footer span:last-child{color:var(--skill-accent,var(--accent));font-weight:600}.skill-empty{grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--muted);border:1px dashed var(--border);border-radius:18px}
+.skill-footnote{display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.76rem;margin:1.2rem 0 2.5rem}.skill-footnote-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block}.skill-links{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem;border:1px solid var(--border);border-radius:20px;background:var(--surface)}.skill-links-copy strong{display:block;font:700 1rem 'Syne',sans-serif;margin-top:.25rem}.skill-socials{display:flex;flex-wrap:wrap;gap:.5rem}.skill-socials a{display:inline-flex;gap:.5rem;align-items:center;border:1px solid var(--border);border-radius:999px;padding:.6rem .85rem;color:var(--text);text-decoration:none;font-size:.78rem;transition:background .2s,border-color .2s}.skill-socials a:hover{background:var(--surface2);border-color:var(--accent)}.skill-socials span{color:var(--accent);font-weight:700}
+@media(max-width:760px){.skills-atlas-top,.skill-links{align-items:flex-start;flex-direction:column}.skill-search-wrap{width:100%;min-width:0}.skill-atlas-grid{grid-template-columns:1fr}.skill-socials{width:100%}}
+
+/* Refresh: warm, editorial portfolio theme */
+:root{--bg:#fffaf5;--bg2:#f5eee8;--surface:#ffffff;--surface2:#fff2e8;--accent:#d95f49;--accent2:#557a67;--accent3:#e5a64b;--glow:rgba(217,95,73,.16);--glow2:rgba(85,122,103,.15);--text:#29242a;--muted:#736b70;--border:rgba(86,72,64,.16)}
+body{background:var(--bg);color:var(--text)}
+nav{background:rgba(255,250,245,.88);border-color:var(--border)}
+#hero{background:radial-gradient(ellipse at 78% 20%,rgba(217,95,73,.11),transparent 55%),radial-gradient(ellipse at 10% 80%,rgba(85,122,103,.12),transparent 55%)}
+.hero-name span{background:linear-gradient(120deg,#d95f49,#557a67,#e5a64b);-webkit-background-clip:text}
+.stats-bar{background:rgba(255,255,255,.72);border-color:var(--border)}
+#about{background:radial-gradient(ellipse at 15% 55%,rgba(85,122,103,.10),transparent 60%)}
+#skills{background:var(--bg2)}
+#projects{background:radial-gradient(ellipse at 85% 10%,rgba(217,95,73,.09),transparent 60%)}
+.skill-bar,.btn-primary,.filter-btn.active,.filter-btn:hover{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.project-card,.cert-card,.skill-category,.highlight-card{background:var(--surface);border-color:var(--border);box-shadow:0 8px 28px rgba(60,40,30,.045)}
+.project-tag{background:rgba(85,122,103,.09);color:var(--accent2);border-color:rgba(85,122,103,.2)}
+.filter-btn{border-color:var(--border);color:var(--muted)}
+.btn-primary{box-shadow:0 10px 22px var(--glow)}
+.btn-outline{color:var(--text);border-color:var(--border)}
+.social-link{border-color:var(--border);color:var(--muted)}
+.avatar-inner{background:linear-gradient(135deg,#d95f49,#557a67);box-shadow:0 0 50px var(--glow)}
+.avatar-ring2{border-color:rgba(217,95,73,.25)}
+.modal-content,.modal-panel{background:var(--surface);color:var(--text)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+
+/* Dynamic interactive cards: ensure content generated after the reveal observer is visible */
+.atlas-card,.cert-card{opacity:1;transform:none}
+.atlas-card{cursor:pointer;}
+.atlas-card:focus-visible,.atlas-chip:focus-visible,.cert-card:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}
+.atlas-card-head{cursor:pointer}
+.cert-card{min-height:128px;cursor:pointer;opacity:1!important;transform:none!important}
+.cert-card .cert-copy{min-width:0;flex:1}
+.cert-card .cert-name{line-height:1.45}
+.cert-card::after{content:'OPEN DETAILS ↗';font-size:.62rem;letter-spacing:.08em;color:var(--accent2);margin-left:auto;align-self:flex-end;white-space:nowrap}
+.modal-related{margin-top:1.2rem;display:grid;gap:.6rem}
+.modal-related-item{border:1px solid var(--border);border-radius:12px;padding:.8rem;background:var(--surface2)}
+.modal-related-item strong{display:block;margin-bottom:.25rem;font-size:.85rem}
+.modal-related-item span{font-size:.75rem;color:var(--muted);line-height:1.5}
+@media(max-width:760px){
+ nav{padding:.75rem 1rem;gap:.6rem;align-items:flex-start;flex-direction:column}
+ .nav-logo{font-size:1rem}
+ .nav-links{width:100%;display:flex;gap:.55rem;overflow-x:auto;padding:.25rem 0 .45rem;scrollbar-width:thin;white-space:nowrap}
+ .nav-links a{font-size:.7rem;letter-spacing:.025em}
+ .section{padding:5.3rem 1.1rem}
+ .section-header{margin-bottom:2rem}
+ .skills-atlas-top{padding:1rem}
+ .skill-filters{gap:.4rem}
+ .skill-filter{font-size:.72rem;padding:.45rem .7rem}
+ .cert-card{padding:1rem;gap:.7rem;min-height:unset}
+ .cert-card::after{font-size:.55rem}
+ .modal-panel{width:100%;max-height:88dvh;padding:1.15rem;border-radius:16px}
+ .modal-actions a{flex:1;justify-content:center}
+ .hero-name{font-size:clamp(1.85rem,8.5vw,2.45rem)!important;line-height:1.08;overflow-wrap:normal;word-break:normal;letter-spacing:-.035em}
+ .hero-name br{display:none}
+ .hero-name span{display:block;margin-top:.08em}
+}
+@media(min-width:761px) and (max-width:1100px){
+ .nav-links{gap:.85rem}
+ .nav-links a{font-size:.75rem}
+ .skills-grid.skill-atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .certs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:420px){
+ .nav-links a{font-size:.65rem}
+ .cert-card{align-items:flex-start;flex-wrap:wrap}
+ .cert-card::after{margin-left:0}
+ .skills-atlas-intro{gap:.65rem}
+ .atlas-mark{width:42px;height:42px}
+ .atlas-heading h3{font-size:.92rem}
+}
+
 </style>
 </head>
 <body>
@@ -466,6 +583,8 @@ footer{
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#certs">Certifications</a></li>
+    <li><a href="#learning">Learning</a></li>
+    <li><a href="#github">GitHub</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -476,7 +595,7 @@ footer{
     <div class="hero-tag">Available for Internships & Collaborations</div>
     <h1 class="hero-name">Madhumitha<br><span>Manivannan</span></h1>
     <p class="hero-role"><span id="typed-text"></span><span id="cursor-blink" style="color:var(--accent2)">|</span></p>
-    <p class="hero-desc">IT student & aspiring Full Stack Developer passionate about building real-world applications and extracting meaningful insights from data. CGPA 8.74 | Hackathon Team Leader.</p>
+    <p class="hero-desc">IT student & aspiring Full Stack Developer passionate about building real-world applications and extracting meaningful insights from data. CGPA 8.75 | Hackathon Team Leader.</p>
     <div class="hero-buttons">
       <a href="mailto:madhu357mani@gmail.com" class="btn btn-primary">Hire Me ✦</a>
       <a href="https://github.com/madhu357programmer" target="_blank" class="btn btn-outline">View GitHub →</a>
@@ -502,7 +621,7 @@ footer{
 
 <!-- Stats -->
 <div class="stats-bar reveal">
-  <div class="stat-item"><div class="stat-num">8.74</div><div class="stat-label">CGPA</div></div>
+  <div class="stat-item"><div class="stat-num">8.75</div><div class="stat-label">CGPA</div></div>
   <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Certifications</div></div>
   <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Live Projects</div></div>
   <div class="stat-item"><div class="stat-num">2+</div><div class="stat-label">Hackathons Led</div></div>
@@ -517,14 +636,14 @@ footer{
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm a 2nd-year Information Technology student (2024–2028) at a Tamil Nadu engineering college with a strong academic record and hands-on experience building real-world applications. I enjoy the intersection of software development and data analytics.</p>
-      <p>As a Hackathon Team Leader, I've delivered impactful solutions under pressure. I've built and deployed both a college website and a business website that are actively used today — real-world impact from day one.</p>
-      <p>Currently exploring AWS, RAG (Retrieval-Augmented Generation), and AI Integration to stay ahead of the curve in a rapidly evolving industry.</p>
+      <p>I am a third-year Information Technology undergraduate with a CGPA of 8.75, focused on software development, problem-solving, and building practical digital solutions. I enjoy turning ideas into working applications and exploring how technology can address real-world needs.</p>
+      <p>Through hackathons and project work, I have collaborated in teams, taken leadership responsibilities, and developed applications across web development, data, and AI-focused domains. I value learning by building, iteration, and clear problem-solving.</p>
+      <p>I am strengthening my core computer science foundations while expanding my skills in full-stack development, databases, AI/ML, and software engineering practices. I am actively seeking internship opportunities where I can contribute, learn from experienced teams, and grow as a developer.</p>
       <div class="about-highlights">
         <div class="highlight-card reveal">
           <div class="highlight-icon">🎓</div>
           <div class="highlight-title">B.E / B.Tech IT</div>
-          <div class="highlight-desc">2024–2028 · CGPA 8.74</div>
+          <div class="highlight-desc">2024–2028 · CGPA 8.75</div>
         </div>
         <div class="highlight-card reveal">
           <div class="highlight-icon">🏆</div>
@@ -548,7 +667,7 @@ footer{
         <div class="tl-dot"></div>
         <div class="tl-year">2024</div>
         <div class="tl-title">Started IT Degree</div>
-        <div class="tl-desc">Enrolled in B.E / B.Tech IT with 8.74 CGPA. Began building foundation in programming, DSA, and databases.</div>
+        <div class="tl-desc">Enrolled in B.E / B.Tech IT with 8.75 CGPA. Began building foundation in programming, DSA, and databases.</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
@@ -573,32 +692,36 @@ footer{
 </section>
 
 <!-- Skills -->
-<section id="skills" class="section">
+<section id="skills" class="section skills-atlas">
   <div class="section-header reveal">
-    <div class="section-tag">What I work with</div>
-    <h2 class="section-title">Technical <em>Skills</em></h2>
+    <div class="section-tag">Technical landscape · built through coursework, projects & training</div>
+    <h2 class="section-title">Skills, in <em>layers</em></h2>
+    <p class="section-intro">Explore the tools, engineering foundations and domains I have worked with. Select a skill to see where it fits in my work.</p>
   </div>
-  <div class="skills-grid">
-    <div class="skill-category reveal">
-      <div class="skill-cat-title"><span class="skill-cat-icon">⚡</span> Languages</div>
-      <div class="skill-item"><div class="skill-name">Java <span>90%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="90"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Python <span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="80"></div></div></div>
-      <div class="skill-item"><div class="skill-name">C / C++ <span>75%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="75"></div></div></div>
-      <div class="skill-item"><div class="skill-name">JavaScript <span>78%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="78"></div></div></div>
-    </div>
-    <div class="skill-category reveal">
-      <div class="skill-cat-title"><span class="skill-cat-icon">🌐</span> Web & Database</div>
-      <div class="skill-item"><div class="skill-name">HTML / CSS <span>88%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="88"></div></div></div>
-      <div class="skill-item"><div class="skill-name">SQL / MySQL <span>85%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="85"></div></div></div>
-      <div class="skill-item"><div class="skill-name">MongoDB <span>72%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="72"></div></div></div>
-      <div class="skill-item"><div class="skill-name">REST APIs <span>70%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="70"></div></div></div>
-    </div>
-    <div class="skill-category reveal">
-      <div class="skill-cat-title"><span class="skill-cat-icon">📊</span> Data & Tools</div>
-      <div class="skill-item"><div class="skill-name">Power BI <span>75%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="75"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Data Analysis <span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="80"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Git / GitHub <span>85%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="85"></div></div></div>
-      <div class="skill-item"><div class="skill-name">Figma <span>65%</span></div><div class="skill-bar-bg"><div class="skill-bar" data-width="65"></div></div></div>
+  <div class="skills-atlas-top reveal">
+    <div class="skills-atlas-intro"><span class="atlas-mark">MM / IT</span><div><strong>Technical Skill Atlas</strong><small>Organized by discipline—not proficiency percentages.</small></div></div>
+    <div class="skills-controls"><label class="skill-search-wrap"><span aria-hidden="true">⌕</span><input id="skill-search" type="search" placeholder="Find a skill…" aria-label="Search skills"></label></div>
+  </div>
+  <div class="skill-filters" id="skill-filters" role="group" aria-label="Filter skill domains">
+    <button class="skill-filter active" data-skill-filter="all">All domains</button>
+    <button class="skill-filter" data-skill-filter="programming">Programming</button>
+    <button class="skill-filter" data-skill-filter="ai-data">AI & Data</button>
+    <button class="skill-filter" data-skill-filter="geospatial">Geospatial</button>
+    <button class="skill-filter" data-skill-filter="frontend">Frontend</button>
+    <button class="skill-filter" data-skill-filter="backend">Backend</button>
+    <button class="skill-filter" data-skill-filter="databases">Databases</button>
+    <button class="skill-filter" data-skill-filter="foundations">CS Foundations</button>
+    <button class="skill-filter" data-skill-filter="tools">Tools & Cloud</button>
+  </div>
+  <div class="skills-grid skill-atlas-grid" id="skill-atlas-grid"></div>
+  <div class="skill-footnote reveal"><span class="skill-footnote-dot"></span>Skill cards open a short context note, including how the technology relates to my projects or learning.</div>
+  <div class="skill-links reveal">
+    <div class="skill-links-copy"><span class="section-tag">Find me elsewhere</span><strong>Code, practice & professional profile</strong></div>
+    <div class="skill-socials">
+      <a href="https://github.com/madhu357programmer" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+      <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer">LeetCode <span>↗</span></a>
+      <a href="https://linkedin.com/in/madhumitha-manivannan357" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+      <a href="mailto:madhu357mani@gmail.com">Email <span>↗</span></a>
     </div>
   </div>
 </section>
@@ -606,129 +729,29 @@ footer{
 <!-- Projects -->
 <section id="projects" class="section">
   <div class="section-header reveal">
-    <div class="section-tag">What I've built</div>
-    <h2 class="section-title">Featured <em>Projects</em></h2>
+    <div class="section-tag">Selected work · Click a card to explore</div>
+    <h2 class="section-title">Projects & <em>Experiments</em></h2>
+    <p class="section-intro">A collection of applications, prototypes, and engineering experiments.</p>
   </div>
-  <div class="projects-grid">
-    <div class="project-card reveal">
-      <div class="project-card-top" style="background:linear-gradient(135deg,#0f0c3c,#1a0f4e)">
-        <div class="project-gradient" style="background:linear-gradient(135deg,rgba(124,58,237,0.5),rgba(6,182,212,0.3))"></div>
-        <div class="project-emoji">🏫</div>
-      </div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">Full Stack</span><span class="project-tag">Deployed</span></div>
-        <div class="project-title">College Website</div>
-        <div class="project-desc">Developed and deployed a responsive college website actively used by students and faculty. Designed the UI and integrated a backend with database support.</div>
-        <div class="project-links">
-          <a href="https://github.com/madhu357programmer" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-card-top" style="background:linear-gradient(135deg,#0c1a0f,#0f2a15)">
-        <div class="project-gradient" style="background:linear-gradient(135deg,rgba(6,182,212,0.4),rgba(34,197,94,0.3))"></div>
-        <div class="project-emoji">🏢</div>
-      </div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">Business</span><span class="project-tag">Responsive</span></div>
-        <div class="project-title">Business Website</div>
-        <div class="project-desc">Built a responsive business website enhancing online presence. Collaborated with stakeholders and ensured scalability and maintainability.</div>
-        <div class="project-links">
-          <a href="https://github.com/madhu357programmer" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-card-top" style="background:linear-gradient(135deg,#1a0c0c,#2a0f15)">
-        <div class="project-gradient" style="background:linear-gradient(135deg,rgba(245,158,11,0.4),rgba(239,68,68,0.3))"></div>
-        <div class="project-emoji">🤖</div>
-      </div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">Machine Learning</span><span class="project-tag">Hardware</span></div>
-        <div class="project-title">ML Hardware Project</div>
-        <div class="project-desc">Hardware-integrated ML system combining software models with physical hardware for real-time functionality. Optimized for accuracy and efficiency.</div>
-        <div class="project-links">
-          <a href="https://github.com/madhu357programmer" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-card-top" style="background:linear-gradient(135deg,#0c150f,#0f1a12)">
-        <div class="project-gradient" style="background:linear-gradient(135deg,rgba(34,197,94,0.4),rgba(6,182,212,0.3))"></div>
-        <div class="project-emoji">🎓</div>
-      </div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">OOP</span></div>
-        <div class="project-title">Student Management System</div>
-        <div class="project-desc">A comprehensive student management application built using Java and OOP concepts, featuring CRUD operations and database management.</div>
-        <div class="project-links">
-          <a href="https://github.com/madhu357programmer" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-card-top" style="background:linear-gradient(135deg,#0c0c1a,#0f0f2a)">
-        <div class="project-gradient" style="background:linear-gradient(135deg,rgba(99,102,241,0.4),rgba(124,58,237,0.4))"></div>
-        <div class="project-emoji">📊</div>
-      </div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">SQL</span><span class="project-tag">Analytics</span></div>
-        <div class="project-title">SQL Data Analysis</div>
-        <div class="project-desc">Dataset-driven analysis projects using SQL and data visualization tools. Includes data cleaning, complex querying, and dashboard creation in Power BI.</div>
-        <div class="project-links">
-          <a href="https://github.com/madhu357programmer" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-      </div>
-    </div>
-    <div class="project-card reveal">
-      <div class="project-card-top" style="background:linear-gradient(135deg,#0f1a0c,#152a0f)">
-        <div class="project-gradient" style="background:linear-gradient(135deg,rgba(245,158,11,0.3),rgba(6,182,212,0.4))"></div>
-        <div class="project-emoji">🌐</div>
-      </div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">HTML/CSS/JS</span><span class="project-tag">Portfolio</span></div>
-        <div class="project-title">Portfolio Web App</div>
-        <div class="project-desc">Portfolio-based web applications showcasing full-stack development skills, UI design principles, and user experience considerations.</div>
-        <div class="project-links">
-          <a href="https://github.com/madhu357programmer" target="_blank" class="project-link">↗ GitHub</a>
-        </div>
-      </div>
-    </div>
+  <div class="projects-filter" id="project-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="full-stack">Full Stack</button>
+    <button class="filter-btn" data-filter="ai-ml">AI / ML</button>
+    <button class="filter-btn" data-filter="web">Web</button>
+    <button class="filter-btn" data-filter="java">Java</button>
+    <button class="filter-btn" data-filter="data">Data</button>
   </div>
+  <div class="projects-grid" id="projects-grid"></div>
 </section>
 
-<!-- Certifications -->
+<!-- Certifications & achievements -->
 <section id="certs" class="section">
   <div class="section-header reveal">
-    <div class="section-tag">Credentials</div>
-    <h2 class="section-title">Certifications & <em>Achievements</em></h2>
+    <div class="section-tag">Learning · Recognition · Milestones</div>
+    <h2 class="section-title">Certificates & <em>Achievements</em></h2>
+    <p class="section-intro">Select an item to view its details. Credential links can be added as they become available.</p>
   </div>
-  <div class="certs-grid">
-    <div class="cert-card reveal">
-      <div class="cert-icon" style="background:rgba(34,197,94,0.15)">🍃</div>
-      <div><div class="cert-name">MongoDB Certification</div><div class="cert-issuer">MongoDB University</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon" style="background:rgba(245,158,11,0.15)">☁️</div>
-      <div><div class="cert-name">AWS Solutions Architect</div><div class="cert-issuer">Amazon Web Services</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon" style="background:rgba(124,58,237,0.15)">🧠</div>
-      <div><div class="cert-name">Machine Learning</div><div class="cert-issuer">Online Certification</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon" style="background:rgba(6,182,212,0.15)">🔍</div>
-      <div><div class="cert-name">RAG – Retrieval-Augmented Generation</div><div class="cert-issuer">AI / LLM Track</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon" style="background:rgba(239,68,68,0.15)">📊</div>
-      <div><div class="cert-name">Data Analytics</div><div class="cert-issuer">Analytics Certification</div></div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon" style="background:rgba(99,102,241,0.15)">📈</div>
-      <div><div class="cert-name">Power BI</div><div class="cert-issuer">Microsoft Power Platform</div></div>
-    </div>
-  </div>
+  <div class="certs-grid" id="certs-grid"></div>
 </section>
 
 <!-- Currently Learning -->
@@ -809,6 +832,21 @@ footer{
     <a href="mailto:madhu357mani@gmail.com" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem">Say Hello ✦</a>
   </div>
 </section>
+
+
+<!-- Interactive detail modal -->
+<div class="detail-modal" id="detail-modal" aria-hidden="true">
+  <div class="modal-backdrop" data-modal-close></div>
+  <article class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" aria-label="Close details" data-modal-close>&times;</button>
+    <div class="modal-kicker" id="modal-kicker">DETAILS</div>
+    <h2 id="modal-title"></h2>
+    <div class="modal-tags" id="modal-tags"></div>
+    <p id="modal-description"></p>
+    <div class="modal-extra" id="modal-extra"></div>
+    <div class="modal-actions" id="modal-actions"></div>
+  </article>
+</div>
 
 <div class="divider"></div>
 <footer>
@@ -898,6 +936,129 @@ const barObs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.3});
 document.querySelectorAll('.skill-category,.github-langs').forEach(s=>barObs.observe(s));
+
+// Interactive skills catalog—no arbitrary proficiency percentages.
+const skillDomains=[
+ {id:"programming",title:"Programming Languages",subtitle:"Languages used across coursework and projects",icon:"⌘",accent:"#d95f49",tint:"#f8e7df",context:"Used for problem-solving, application development, scripting and database work.",skills:["Python","C","C++","Java","JavaScript","SQL"]},
+ {id:"ai-data",title:"AI, Data & Scientific Computing",subtitle:"Analysis, computation and intelligent systems",icon:"⌁",accent:"#557a67",tint:"#e8efe8",context:"Applied through image analysis, analytics internship work, visualization and project prototypes; AI-agent and RAG topics are also part of training.",skills:["NumPy","Pandas","OpenCV","Matplotlib","Seaborn","Data Cleaning","Exploratory Data Analysis","Image Processing","Computer Vision","Anomaly Detection","AI Agents","RAG Concepts"]},
+ {id:"geospatial",title:"Geospatial & Remote Sensing",subtitle:"Satellite imagery and spatial analysis",icon:"◉",accent:"#65729a",tint:"#e9edf5",context:"Relevant to SatQuery and satellite-data workflows. Includes project work and active development/learning—not a claim of expert-level mastery.",skills:["Satellite Image Processing","Remote-Sensing Analysis","Optical Imagery","SAR Fundamentals","Spectral Indices","Change Detection","Geospatial Data Processing","Image Visualization"]},
+ {id:"frontend",title:"Frontend Development",subtitle:"Interfaces and application experiences",icon:"▤",accent:"#c17b42",tint:"#f5ecdf",context:"Used to build interfaces, dashboards and project frontends.",skills:["HTML5","CSS3","JavaScript","React.js","Responsive UI","Dashboard Design","Data Visualization","Vite","Streamlit"]},
+ {id:"backend",title:"Backend & API Engineering",subtitle:"Server-side logic and integration",icon:"⌘",accent:"#9b668c",tint:"#f0e8f1",context:"Backend technologies used in API-backed projects, processing pipelines and web application integration.",skills:["FastAPI","Node.js","Express.js","REST APIs","API Testing","Python Backend","Data Processing Pipelines"]},
+ {id:"databases",title:"Databases & Data Management",subtitle:"Persistence, querying and application data",icon:"▦",accent:"#4c8984",tint:"#e5f1ee",context:"Database concepts and tools explored in projects, training and backend integration.",skills:["MySQL","MongoDB","SQLite","SQL Queries","CRUD Operations","Data Logging","Database Fundamentals"]},
+ {id:"foundations",title:"Computer Science Foundations",subtitle:"Core engineering concepts",icon:"◇",accent:"#7c8056",tint:"#eef0e2",context:"Core topics supported by undergraduate coursework, coding practice and interview preparation.",skills:["Data Structures & Algorithms","OOP","DBMS","Operating Systems","Computer Networks","Algorithmic Problem Solving","Software Engineering Fundamentals"]},
+ {id:"tools",title:"Developer Tools & Cloud",subtitle:"Workflow, testing and deployment ecosystem",icon:"↗",accent:"#687e9c",tint:"#e8edf4",context:"Tools used for development, source control, API testing, deployment, cloud learning and database hosting.",skills:["Git","GitHub","VS Code","Postman","AWS Fundamentals","MongoDB Atlas","Vercel","API Integration"]}
+];
+const skillGrid=document.getElementById("skill-atlas-grid");
+const skillSearch=document.getElementById("skill-search");let currentSkillFilter="all";
+const domainProjectMap={
+ programming:["FluoroFlow","MovieTicketBooking","CGPA Management","ReadyRound","LeetCode Profile"],
+ "ai-data":["FluoroFlow","SatQuery — ISRO / SIH","CodeAlpha Sales Analytics Dashboard","Satellite Telemetry Monitoring & Anomaly Detection System"],
+ geospatial:["SatQuery — ISRO / SIH","Satellite Telemetry Monitoring & Anomaly Detection System"],
+ frontend:["ReadyRound","StoryVerse","SatQuery — ISRO / SIH","CGPA Management","SkillTrack for Students","FinCompass","Venkateshwara Aquatech Website"],
+ backend:["FluoroFlow","ReadyRound","StoryVerse","FinCompass","Satellite Telemetry Monitoring & Anomaly Detection System","CGPA Management"],
+ databases:["MovieTicketBooking","StoryVerse","FinCompass","CGPA Management","SkillTrack for Students","Satellite Telemetry Monitoring & Anomaly Detection System"],
+ foundations:["LeetCode Profile","MovieTicketBooking","SatQuery AI","FluoroFlow"],
+ tools:["FluoroFlow","ReadyRound","StoryVerse","SatQuery — ISRO / SIH","FinCompass","CodeAlpha Sales Analytics Dashboard"]
+};
+function relatedProjectsForDomain(domain){
+ const names=domainProjectMap[domain.id]||[];
+ return names.map(name=>({name,description:projectData?.find(p=>p.name===name)?.summary||"Applied or explored through coursework, training, project development, or technical practice.",github:projectData?.find(p=>p.name===name)?.github||"",live:projectData?.find(p=>p.name===name)?.live||""}));
+}
+function skillCard(domain){
+ const card=document.createElement("article");card.className="atlas-card";card.style.setProperty("--skill-accent",domain.accent);card.style.setProperty("--skill-tint",domain.tint);card.tabIndex=0;card.setAttribute("role","button");card.setAttribute("aria-label",`Explore ${domain.title} skills and projects`);
+ card.innerHTML=`<div class="atlas-card-head"><div class="atlas-icon">${domain.icon}</div><div class="atlas-heading"><h3>${domain.title}</h3><small>${domain.subtitle}</small></div></div><div class="atlas-skills">${domain.skills.map(skill=>`<button class="atlas-chip" type="button" data-domain="${domain.id}" data-skill="${skill.replace(/&/g,"&amp;")}">${skill}</button>`).join("")}</div><div class="atlas-card-footer"><span>${domain.skills.length} topics</span><span>Tap to explore projects ↗</span></div>`;
+ card.addEventListener("click",e=>{if(e.target.closest(".atlas-chip"))return;openDetails("skill",{name:domain.title,summary:domain.context,tags:[domain.title,...domain.skills.slice(0,5)],details:[`Skills in this domain: ${domain.skills.join(" · ")}`,domain.context],relatedProjects:relatedProjectsForDomain(domain)});});
+ card.addEventListener("keydown",e=>{if(e.target!==card)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetails("skill",{name:domain.title,summary:domain.context,tags:[domain.title,...domain.skills.slice(0,5)],details:[`Skills in this domain: ${domain.skills.join(" · ")}`,domain.context],relatedProjects:relatedProjectsForDomain(domain)});}});
+ card.querySelectorAll(".atlas-chip").forEach(chip=>chip.addEventListener("click",e=>{e.stopPropagation();const skill=chip.dataset.skill;const projects=relatedProjectsForDomain(domain);openDetails("skill",{name:skill,summary:`${skill} is part of my ${domain.title} skill set. ${domain.context}`,tags:[domain.title,skill],details:[domain.context],relatedProjects:projects});}));
+ return card;
+}
+function renderSkillAtlas(){const q=(skillSearch?.value||"").trim().toLowerCase();const filtered=skillDomains.filter(d=>(currentSkillFilter==="all"||d.id===currentSkillFilter)&&(!q||d.title.toLowerCase().includes(q)||d.subtitle.toLowerCase().includes(q)||d.skills.some(k=>k.toLowerCase().includes(q))));skillGrid.innerHTML="";if(!filtered.length){skillGrid.innerHTML='<div class="skill-empty">No matching skills found. Try another keyword or select “All domains”.</div>';return;}filtered.forEach(d=>skillGrid.appendChild(skillCard(d)));}
+document.querySelectorAll("#skill-filters .skill-filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("#skill-filters .skill-filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");currentSkillFilter=btn.dataset.skillFilter;renderSkillAtlas();}));
+skillSearch?.addEventListener("input",renderSkillAtlas);renderSkillAtlas();
+
+// Data-driven project cards and certificate details
+const projectData = [
+ {name:"FluoroFlow",category:["ai-ml","full-stack"],emoji:"🧪",gradient:"linear-gradient(135deg,#092e3b,#123f4e)",tags:["AI / Computer Vision","FastAPI","OpenCV","SQLite","Hackathon"],summary:"A fluorescence-based microplastic detection and analysis prototype. Upload an image to estimate particle count, size, confidence, contamination indicators, and filtration recommendations.",details:["Built as a hackathon prototype with a FastAPI backend and OpenCV image processing.","Designed to explain image-based detection outputs and recommend filtration actions.","Future direction includes sensor/hardware integration and adaptive filtration."],github:"https://github.com/madhu357programmer/FluoroFlow",live:"https://fluoro-flow.vercel.app/"},
+ {name:"ReadyRound",category:["full-stack","web"],emoji:"🧩",gradient:"linear-gradient(135deg,#14263d,#293e68)",tags:["React","Vite","Tailwind","Express","Supabase","Judge0 planned"],summary:"A calm placement-practice platform designed to help learners bridge the gap between understanding concepts and solving coding problems, without AI tutoring or guilt-driven streaks.",details:["Question practice, category filters, language selection and progress history.","Supabase profiles/questions/progress with an Express API and React frontend.","Demo mode is available; Judge0 integration is planned."],github:"",live:""},
+ {name:"StoryVerse",category:["full-stack","web"],emoji:"📚",gradient:"linear-gradient(135deg,#381a45,#602c70)",tags:["MERN","PDF/DOCX","Branching Stories","Story Bible"],summary:"A story-building and reading workspace for branching narratives, with continuity support and a Story Bible to help keep characters and story details consistent.",details:["Branching story exploration and writing.","PDF and DOCX workflow support.","Story Bible to track story facts and continuity."],github:"https://github.com/madhu357programmer/StoryVerse",live:""},
+ {name:"SatQuery — ISRO / SIH",category:["ai-ml"],emoji:"🛰️",gradient:"linear-gradient(135deg,#0d263e,#184c7b)",tags:["Satellite Data","ISRO","AI","SIH 2026"],summary:"A satellite-data focused project concept developed for Smart India Hackathon, aligned with the SIH problem statement SatQuery (SIH26167).",details:["Project concept and problem-solving work for a national hackathon track.","Repository and demo links can be added once shared."],github:"",live:""},
+ {name:"MovieTicketBooking",category:["java","full-stack"],emoji:"🎬",gradient:"linear-gradient(135deg,#3a1821,#672a42)",tags:["Java","Servlets","SQL"],summary:"A movie ticket booking application built around Java Servlet workflows and SQL database operations.",details:["A project exploring server-side Java, request handling and database-backed booking flows."],github:"https://github.com/madhu357programmer/MovieTicketBooking",live:""},
+ {name:"CGPA Management",category:["full-stack","web"],emoji:"🎓",gradient:"linear-gradient(135deg,#1b2a49,#274b70)",tags:["Frontend","Backend","Management"],summary:"A CGPA management tool with separate frontend, backend and management components.",details:["Organized into frontend, backend and management repositories/components.","Designed to support student grade and CGPA management workflows."],github:"https://github.com/madhu357programmer",live:""},
+ {name:"SkillTrack for Students",category:["full-stack","web"],emoji:"📈",gradient:"linear-gradient(135deg,#123b2d,#1d694c)",tags:["Student Tools","Web App"],summary:"A student-focused skill tracking application for organizing and monitoring skills and learning progress.",details:["Student-focused tracking and organization.","Repository link can be updated to the exact project URL."],github:"https://github.com/madhu357programmer/Skilltrack-for-student",live:""},
+ {name:"FinCompass",category:["full-stack","web","data"],emoji:"💹",gradient:"linear-gradient(135deg,#1d3039,#235a65)",tags:["React","Vite","Express","MongoDB"],summary:"A finance-oriented web application built with a React/Vite frontend and Express/MongoDB backend.",details:["Frontend and backend integration.","MongoDB-based application data layer."],github:"",live:""},
+ {name:"LeetCode Profile",category:["java","data"],emoji:"🧩",gradient:"linear-gradient(135deg,#f08c46,#efb65b)",tags:["255 Solved","Rating 1,695","14 Contests","Top 14.6%"],summary:"Competitive programming and interview preparation progress across algorithms, data structures, SQL, and contest participation.",details:["Contest rating: 1,695 · Global rank: 128,247 / 893,251","14 contests attended · Top 14.6%","255 solved in total across listed difficulty counts: 98 Easy, 127 Medium, 30 Hard","Acceptance rate: 71.24%","Profile highlights: Beats 89.44%, 88.56%, and 84.54% (as displayed)","Badges: 50 Days 2026, 100 Days 2026, Top SQL 50","Focus areas include Dynamic Programming, Segment Tree, Union-Find, Backtracking, Trie, Binary Search, Graph traversal, Arrays, Strings, Matrices and SQL."],github:"",live:""},
+ {name:"Satellite Telemetry Monitoring & Anomaly Detection System",category:["ai-ml","full-stack"],emoji:"🛰️",gradient:"linear-gradient(135deg,#183c4a,#477b83)",tags:["Python","FastAPI","React","SQLite","NumPy"],summary:"A simulation-based spacecraft telemetry monitoring system with parameter tracking, communication-status simulation, event logging and threshold-based anomaly detection.",details:["Simulates spacecraft health and communication parameters.","Includes threshold-based alerts, data logging and communication-loss scenarios.","Dashboard concept for parameter trends and historical monitoring."],github:"",live:""},
+ {name:"CodeAlpha Sales Analytics Dashboard",category:["data","web"],emoji:"📊",gradient:"linear-gradient(135deg,#274a36,#79a17c)",tags:["Python","Pandas","Streamlit","Matplotlib","Seaborn"],summary:"An interactive sales analytics dashboard built during the CodeAlpha Data Analytics internship to explore sales trends, product-line performance and deal-size distribution.",details:["Data cleaning and exploratory analysis using Python and Pandas.","Visualized patterns and trends with Matplotlib and Seaborn.","Built a Streamlit dashboard for sales analytics."],github:"",live:""},
+ {name:"Venkateshwara Aquatech Website",category:["full-stack","web"],emoji:"💧",gradient:"linear-gradient(135deg,#174b56,#4d8b8c)",tags:["Freelance","Web Development","Business Website"],summary:"Freelance web development work for Venkateshwara Aquatech, translating business requirements into a website and implementing updates and modifications.",details:["Worked from business requirements.","Implemented website design and development independently.","Maintained and modified the web solution as needed."],github:"",live:""}
+];
+const projectsGrid = document.getElementById("projects-grid");
+function projectCard(p,i){
+ const card=document.createElement("article");card.className="project-card reveal";card.tabIndex=0;card.setAttribute("role","button");card.setAttribute("aria-label",`View details for ${p.name}`);
+ card.innerHTML=`<div class="project-card-top" style="background:${p.gradient}"><div class="project-emoji">${p.emoji}</div></div><div class="project-body"><div class="project-tags">${p.tags.slice(0,3).map(t=>`<span class="project-tag">${t}</span>`).join("")}</div><div class="project-title">${p.name}</div><div class="project-desc">${p.summary}</div></div>`;
+ card.addEventListener("click",()=>openDetails("project",p));
+ card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetails("project",p)}});
+ return card;
+}
+function renderProjects(filter="all"){
+ projectsGrid.innerHTML="";
+ projectData.filter(p=>filter==="all"||p.category.includes(filter)).forEach((p,i)=>projectsGrid.appendChild(projectCard(p,i)));
+ projectsGrid.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));
+}
+document.querySelectorAll("#project-filters .filter-btn").forEach(btn=>btn.addEventListener("click",()=>{
+ document.querySelectorAll("#project-filters .filter-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderProjects(btn.dataset.filter);
+}));
+renderProjects();
+
+// Certificates and achievements (editable data list)
+const certificateData=[
+ {name:"NPTEL — Internet of Things",issuer:"NPTEL · Gold Badge",icon:"📡",description:"Completed NPTEL learning in Internet of Things, with a Gold Badge recognition.",tags:["NPTEL","IoT","Gold Badge"],link:""},
+ {name:"NPTEL — Foundations of IoT & Cloud Computing",issuer:"NPTEL · Elite Badge",icon:"☁️",description:"Foundational training in IoT and cloud computing, with Elite Badge recognition.",tags:["NPTEL","IoT","Cloud","Elite Badge"],link:""},
+ {name:"MongoDB AI & Developer Learning",issuer:"MongoDB",icon:"🍃",description:"MongoDB training covering Building RAG Apps, Building AI Agents, Core Concepts & Architecture, and MongoDB for a Resilient AI Strategy.",tags:["MongoDB","RAG","AI Agents","Database"],link:""},
+ {name:"AWS Solutions Architecture Job Simulation",issuer:"Forage",icon:"☁️",description:"Completed an AWS Solutions Architecture job simulation through Forage.",tags:["AWS","Cloud","Forage"],link:""},
+ {name:"Best of Next '26",issuer:"Google Cloud Skills Boost",icon:"🌐",description:"Learning achievement through Google Cloud Skills Boost.",tags:["Google Cloud","Skills Boost"],link:""},
+ {name:"30-Hour Technical Training",issuer:"Velammal Engineering College",icon:"🛠️",description:"Training covering Software Automation, API Development and Networking.",tags:["Software Automation","APIs","Networking","30 Hours"],link:""},
+ {name:"GirlScript Summer of Code 2026",issuer:"Open Source Contributor · AI / Agents Track",icon:"🌱",description:"Open-source contributor in the AI / Agents track of GirlScript Summer of Code 2026.",tags:["Open Source","AI / Agents","GSSoC 2026"],link:""},
+ {name:"CodeAlpha Data Analytics Internship",issuer:"CodeAlpha · Chennai · June–July 2026",icon:"📊",description:"Internship experience in data cleaning, exploratory analysis, Python and Pandas, visualization, and a Streamlit sales analytics dashboard.",tags:["Internship","Python","Pandas","Streamlit"],link:""},
+ {name:"Omnikon National Hackathon 2026 — Finalist",issuer:"Omnikon Hackathon",icon:"🏆",description:"Finalist recognition for the FluoroFlow project at the Omnikon National Hackathon 2026.",tags:["Hackathon","Finalist","FluoroFlow"],link:"https://github.com/madhu357programmer/FluoroFlow"},
+ {name:"FluoroFlow Ideathon — Second Prize",issuer:"Ideathon recognition",icon:"🥈",description:"Second Prize recognition for the FluoroFlow idea and prototype.",tags:["Second Prize","Ideathon","Innovation"],link:"https://github.com/madhu357programmer/FluoroFlow"},
+ {name:"Smart India Hackathon — ISRO Problem Statement",issuer:"SIH · Participant",icon:"🛰️",description:"Participant working on a satellite imagery analysis problem aligned with the ISRO SatQuery concept.",tags:["SIH","ISRO","SatQuery"],link:""},
+ {name:"Pariksha Pe Charcha 2024",issuer:"Letter of Appreciation · Hon'ble Prime Minister of India",icon:"✉️",description:"Received a letter of appreciation connected with Pariksha Pe Charcha 2024.",tags:["Recognition","2024"],link:""},
+ {name:"LeetCode Badges & Contest Profile",issuer:"LeetCode · Problem-solving and contest practice",icon:"🧩",description:"Competitive programming profile recognition: 50 Days Badge 2026, 100 Days Badge 2026, and Top SQL 50. Current profile snapshot lists 255 solved problems, 14 contests, and a contest rating of 1,695.",tags:["50 Days 2026","100 Days 2026","Top SQL 50","255 Solved","Rating 1,695"],link:"https://leetcode.com/"}
+];
+const certGrid=document.getElementById("certs-grid");
+certificateData.forEach(c=>{
+ const card=document.createElement("article");card.className="cert-card reveal";card.tabIndex=0;card.setAttribute("role","button");
+ card.innerHTML=`<div class="cert-icon" style="background:rgba(85,122,103,.12)">${c.icon}</div><div class="cert-copy"><div class="cert-name">${c.name}</div><div class="cert-issuer">${c.issuer}</div></div>`;card.classList.add("visible");
+ card.addEventListener("click",()=>openDetails("certificate",c));
+ card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetails("certificate",c)}});
+ certGrid.appendChild(card);
+});
+
+// Modal helpers
+const modal=document.getElementById("detail-modal");
+function openDetails(type,item){
+ document.getElementById("modal-kicker").textContent=type==="project"?"PROJECT OVERVIEW":type==="skill"?"SKILL CONTEXT":"CERTIFICATE / ACHIEVEMENT";
+ document.getElementById("modal-title").textContent=item.name;
+ document.getElementById("modal-description").textContent=item.summary||item.description||"";
+ document.getElementById("modal-tags").innerHTML=(item.tags||[]).map(t=>`<span class="modal-tag">${t}</span>`).join("");
+ const extra=document.getElementById("modal-extra");
+ extra.innerHTML="";
+ if(item.details){const h=document.createElement("h3");h.textContent="Highlights";extra.appendChild(h);const ul=document.createElement("ul");item.details.forEach(d=>{const li=document.createElement("li");li.textContent=d;ul.appendChild(li)});extra.appendChild(ul)}
+ if(item.issuer){const h=document.createElement("h3");h.textContent="Issued / recognized by";extra.appendChild(h);const p=document.createElement("p");p.textContent=item.issuer;extra.appendChild(p)}
+ if(item.relatedProjects&&item.relatedProjects.length){const wrap=document.createElement("div");wrap.className="modal-related";const heading=document.createElement("h3");heading.textContent="Projects using this skill area";wrap.appendChild(heading);item.relatedProjects.forEach(pr=>{const box=document.createElement("div");box.className="modal-related-item";box.innerHTML=`<strong>${pr.name}</strong><span>${pr.description}</span>`;const links=document.createElement("div");links.className="modal-actions";if(pr.github){const a=document.createElement("a");a.href=pr.github;a.target="_blank";a.rel="noopener noreferrer";a.textContent="↗ GitHub";links.appendChild(a)}if(pr.live){const a=document.createElement("a");a.href=pr.live;a.target="_blank";a.rel="noopener noreferrer";a.textContent="↗ Live demo";links.appendChild(a)}if(links.children.length)box.appendChild(links);wrap.appendChild(box)});extra.appendChild(wrap)}
+
+ const actions=document.getElementById("modal-actions");actions.innerHTML="";
+ if(item.github){const a=document.createElement("a");a.href=item.github;a.target="_blank";a.rel="noopener noreferrer";a.textContent="↗ GitHub Repository";actions.appendChild(a)}
+ if(item.live){const a=document.createElement("a");a.href=item.live;a.target="_blank";a.rel="noopener noreferrer";a.textContent="↗ Live Demo";actions.appendChild(a)}
+ if(item.link){const a=document.createElement("a");a.href=item.link;a.target="_blank";a.rel="noopener noreferrer";a.textContent="↗ Credential / Project Link";actions.appendChild(a)}
+ if(!actions.children.length){const note=document.createElement("span");note.className="empty-link-note";note.textContent="Links will be added when available.";actions.appendChild(note)}
+ modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+ document.getElementById("modal-panel")?.focus();
+}
+function closeDetails(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""}
+modal.querySelectorAll("[data-modal-close]").forEach(el=>el.addEventListener("click",closeDetails));
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeDetails()});
+
 </script>
 </body>
 </html>
